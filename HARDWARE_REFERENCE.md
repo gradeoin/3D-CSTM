@@ -47,6 +47,11 @@ Your printer is equipped with two **Aluminum MK8 Direct-Drive Extruders** ([Refe
 | **Hotend 2 (T1)** | `T1` | `PIN 69` (Analog 15) | 100k NTC 3950 |
 | **Heated Bed** | `T2` | `PIN 68` (Analog 14) | 100k NTC 3950 |
 
+### Display & Controller (RepRapDiscount 2004 LCD)
+* **Model:** [LCD 2004 Graphic Smart Display Controller Board](https://roboticx.ps/product/lcd-2004-graphic-smart-display-controller-board/)
+* **Interface:** Connects via **EXP1** (LCD, rotary encoder, beeper) and **EXP2** (SD card reader SPI bus, Stop switch) into the RAMPS Smart Adapter.
+* **Firmware Define:** `#define REPRAP_DISCOUNT_SMART_CONTROLLER` in `Configuration.h`.
+
 ### Limit Switches (Endstops)
 | Endstop | RAMPS Header | ATmega2560 Digital Pin | Pullup |
 | :--- | :--- | :--- | :--- |
