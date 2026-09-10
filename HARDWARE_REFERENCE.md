@@ -42,22 +42,20 @@ In Marlin firmware, the pins are assigned according to `pins_RAMPS.h`. Below is 
 
 ## 2. Stepper Driver Tuning (VREF Calculation)
 
-Your StepStick drivers (A4988 or DRV8825) have tiny silver potentiometers (trimpots) that control the motor current limit ($I_{max}$).
-
-### For A4988 Drivers (Green or Red PCB):
-Formula:
-$$V_{REF} = I_{max} \times 8 \times R_{sense}$$
-
-* Standard current sense resistor ($R_{sense}$): usually **`0.100 Ω`** (marked `R100`) or **`0.050 Ω`** (marked `R050`).
-* For typical NEMA 17 motors running at ~0.9A to 1.0A RMS:
-  * **Recommended $V_{REF}$:** **`0.70 V – 0.80 V`**
+> [!NOTE]
+> **CONFIRMED HARDWARE:** All 5 stepper driver slots (X, Y, Z, E0, E1) on your RAMPS 1.4 board are equipped with **Texas Instruments DRV8825** (Purple PCB) modules running at **1/32 microstepping**! This explains why your steps/mm are doubled (160 steps/mm for X/Y and 800 steps/mm for Z).
 
 ### For DRV8825 Drivers (Purple PCB):
 Formula:
-$$V_{REF} = \frac{I_{max}}{2}$$
+$$V_{REF} = \frac{I_{max}}{2} \quad \Longleftrightarrow \quad I_{max} = 2 \times V_{REF}$$
 
-* For a 1.0A motor:
-  * **Recommended $V_{REF}$:** **`0.50 V`**
+* Your boards feature the **`R250`** / `0.250 Ω` current sense resistors.
+* For typical NEMA 17 motors running at ~0.9A to 1.0A:
+  * **Recommended $V_{REF}$:** **`0.45 V – 0.55 V`**
+* **Key Specs:**
+  * Microstepping: Up to **1/32 microstep** (smoother and quieter than A4988)
+  * Peak Current: Up to **2.5A** with heatsink
+  * 4-layer PCB with exposed thermal ground pad ("cooling pads") for heat dissipation.
 
 > [!CAUTION]
 > When measuring $V_{REF}$ with a multimeter: Put the red probe on the metal screw of the trimpot and black probe on DC Ground (or power supply -V). Use a ceramic or insulated screwdriver to prevent short-circuiting adjacent driver pins!

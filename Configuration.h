@@ -59,6 +59,13 @@
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 
+// Stepper Drivers (Texas Instruments DRV8825 at 1/32 microstepping)
+#define X_DRIVER_TYPE  DRV8825
+#define Y_DRIVER_TYPE  DRV8825
+#define Z_DRIVER_TYPE  DRV8825
+#define E0_DRIVER_TYPE DRV8825
+#define E1_DRIVER_TYPE DRV8825
+
 // Motion Steps (Queried from M92)
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.0, 160.0, 800.0, 180.0 }
 
