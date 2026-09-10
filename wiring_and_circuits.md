@@ -4,19 +4,23 @@ This document is the complete electrical and wiring reference for your custom **
 
 ---
 
-## 1. Power Supply Wiring (SMPS to RAMPS 1.4)
+## 1. Power Supply Star Distribution (Confirmed 4-Wire Independent Feeds)
 
-The industrial switching power supply (SMPS) connects to the **green 4-pin screw terminal block** on the bottom-left edge of the RAMPS 1.4 board.
+The industrial 12V SMPS power supply uses a **dedicated Star Distribution** topology with **4 wires** leaving its DC output terminals (+V and -V/COM):
 
-| Power Supply Terminal | RAMPS 1.4 Terminal | Wire Gauge / Role | Notes |
-| :--- | :--- | :--- | :--- |
-| **+V** (12V) | **5A (+) Input** | 16–18 AWG | Powers logic, stepper motors, and hotends |
-| **-V / COM** (GND) | **5A (-) Ground** | 16–18 AWG | Ground return for 5A rail |
-| **+V** (12V) | **11A (+) Input** | 14 AWG (Thick) | Dedicated high-current rail for Heated Bed |
-| **-V / COM** (GND) | **11A (-) Ground** | 14 AWG (Thick) | Ground return for Heated Bed |
+```
+                                  ┌───► [ Pair A: 2 Heavy Wires ] ──► Makerbase MKS MOS25 (Bed Module)
+[ 12V Industrial Power Supply ] ──┤
+                                  └───► [ Pair B: 2 Heavy Wires ] ──► RAMPS 1.4 4-Pin Green Plug (5A Rail)
+```
 
-> [!WARNING]
-> Never reverse the polarity (+ and -). Reversing 12V and Ground will instantly blow the polyfuses and diode D1 on the RAMPS board.
+| Wire Pair | Origin (Power Supply) | Destination | Current / Role | Advantage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Pair A (2 Wires)** | **+V** and **COM (-)** | **MKS MOS25 Module** (`DC IN`) | ~12–15A (High Power) | Feeds maximum current straight to the bed without passing through RAMPS. |
+| **Pair B (2 Wires)** | **+V** and **COM (-)** | **RAMPS 1.4 Green Plug** (5A Pins) | ~3–5A (Logic/Motors) | Dedicated clean power for Arduino Mega, 5x DRV8825 drivers, and hotends. |
+
+> [!NOTE]
+> **Why this Star topology is superior:** When the heated bed draws 15 Amps, it causes zero voltage sag on the stepper motors or Arduino board because RAMPS has its own independent wire pair straight back to the power supply terminals!
 
 ---
 
