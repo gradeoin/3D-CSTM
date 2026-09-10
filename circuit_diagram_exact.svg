@@ -1,0 +1,442 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background-color: #0f172a; font-family: 'Segoe UI', -apple-system, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="psuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="rampsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="mos25Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="driverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7e22ce"/>
+      <stop offset="100%" stop-color="#6b21a8"/>
+    </linearGradient>
+    <linearGradient id="adapterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b91c1c"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="lcdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+  </defs>
+
+  <!-- TITLE BLOCK -->
+  <text x="800" y="45" text-anchor="middle" fill="#f8fafc" font-size="28" font-weight="bold" letter-spacing="1">BRAVO DUAL 3D PRINTER — EXACT ELECTRICAL WIRING SCHEMATIC</text>
+  <text x="800" y="75" text-anchor="middle" fill="#94a3b8" font-size="14">Arduino Mega 2560 + RAMPS 1.4 (EEB) | 5x DRV8825 (1/32) | Makerbase MKS MOS25 V2.0 | 4x Endstops | 6x Motors</text>
+
+  <!-- ==================== 1. POWER SUPPLY (LEFT) ==================== -->
+  <g transform="translate(60, 130)" filter="url(#shadow)">
+    <rect width="200" height="340" rx="8" fill="url(#psuGrad)" stroke="#475569" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="bold">12V SMPS (30A 360W)</text>
+    <text x="100" y="50" text-anchor="middle" fill="#94a3b8" font-size="12">Industrial Power Supply</text>
+    
+    <!-- Ventilation grill pattern -->
+    <g fill="#475569" opacity="0.3">
+      <circle cx="50" cy="80" r="4"/><circle cx="70" cy="80" r="4"/><circle cx="90" cy="80" r="4"/><circle cx="110" cy="80" r="4"/><circle cx="130" cy="80" r="4"/><circle cx="150" cy="80" r="4"/>
+      <circle cx="50" cy="100" r="4"/><circle cx="70" cy="100" r="4"/><circle cx="90" cy="100" r="4"/><circle cx="110" cy="100" r="4"/><circle cx="130" cy="100" r="4"/><circle cx="150" cy="100" r="4"/>
+      <circle cx="50" cy="120" r="4"/><circle cx="70" cy="120" r="4"/><circle cx="90" cy="120" r="4"/><circle cx="110" cy="120" r="4"/><circle cx="130" cy="120" r="4"/><circle cx="150" cy="120" r="4"/>
+    </g>
+
+    <!-- Terminals -->
+    <rect x="20" y="160" width="160" height="160" rx="4" fill="#0f172a" stroke="#64748b"/>
+    <text x="35" y="185" fill="#f87171" font-size="12" font-weight="bold">L (AC)</text>
+    <text x="35" y="210" fill="#60a5fa" font-size="12" font-weight="bold">N (AC)</text>
+    <text x="35" y="235" fill="#4ade80" font-size="12" font-weight="bold">GND (⏚)</text>
+    <text x="35" y="265" fill="#38bdf8" font-size="13" font-weight="bold">-V (COM)</text>
+    <text x="35" y="290" fill="#38bdf8" font-size="13" font-weight="bold">-V (COM)</text>
+    <text x="120" y="265" fill="#f87171" font-size="13" font-weight="bold">+V (12V)</text>
+    <text x="120" y="290" fill="#f87171" font-size="13" font-weight="bold">+V (12V)</text>
+  </g>
+
+  <!-- ==================== 2. MAKERBASE MKS MOS25 V2.0 (BOTTOM LEFT) ==================== -->
+  <g transform="translate(60, 530)" filter="url(#shadow)">
+    <rect width="260" height="240" rx="8" fill="url(#mos25Grad)" stroke="#d97706" stroke-width="2"/>
+    <text x="130" y="28" text-anchor="middle" fill="#fbbf24" font-size="15" font-weight="bold">Makerbase MKS MOS25 V2.0</text>
+    <text x="130" y="46" text-anchor="middle" fill="#94a3b8" font-size="11">25A Opto-Isolated Bed MOSFET</text>
+
+    <!-- Heatsink in center -->
+    <rect x="95" y="60" width="70" height="80" rx="4" fill="#1e293b" stroke="#475569"/>
+    <line x1="105" y1="65" x2="105" y2="135" stroke="#64748b" stroke-width="3"/>
+    <line x1="117" y1="65" x2="117" y2="135" stroke="#64748b" stroke-width="3"/>
+    <line x1="130" y1="65" x2="130" y2="135" stroke="#64748b" stroke-width="3"/>
+    <line x1="143" y1="65" x2="143" y2="135" stroke="#64748b" stroke-width="3"/>
+    <line x1="155" y1="65" x2="155" y2="135" stroke="#64748b" stroke-width="3"/>
+
+    <!-- Left Amber Terminal (DC IN) -->
+    <rect x="15" y="70" width="65" height="60" rx="4" fill="#b45309" fill-opacity="0.8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="47" y="95" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">DC IN</text>
+    <text x="47" y="115" text-anchor="middle" fill="#fef3c7" font-size="10">+ / - (12V)</text>
+
+    <!-- Right Amber Terminal (HOT BED) -->
+    <rect x="180" y="70" width="65" height="60" rx="4" fill="#b45309" fill-opacity="0.8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="212" y="95" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">HOT BED</text>
+    <text x="212" y="115" text-anchor="middle" fill="#fef3c7" font-size="10">+ / - (OUT)</text>
+
+    <!-- Control Signal J4 Port -->
+    <rect x="100" y="170" width="60" height="35" rx="4" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="130" y="192" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">BED SIG (+ -)</text>
+    <text x="130" y="225" text-anchor="middle" fill="#cbd5e1" font-size="11">Trigger Input from RAMPS D8</text>
+  </g>
+
+  <!-- ==================== 3. HEATED BED ==================== -->
+  <g transform="translate(60, 810)" filter="url(#shadow)">
+    <rect width="260" height="150" rx="8" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+    <text x="130" y="45" text-anchor="middle" fill="#fee2e2" font-size="18" font-weight="bold">HEATED BED (275 × 240 mm)</text>
+    <text x="130" y="70" text-anchor="middle" fill="#fca5a5" font-size="13">12V ~15A Heating Element</text>
+    <text x="130" y="110" text-anchor="middle" fill="#fecaca" font-size="12">+ T2 Thermistor under bed</text>
+  </g>
+
+  <!-- ==================== 4. MAIN MOTHERBOARD STACK (RAMPS 1.4 on ARDUINO MEGA) ==================== -->
+  <g transform="translate(420, 130)" filter="url(#shadow)">
+    <!-- Base Board (Arduino Mega 2560 Indication) -->
+    <rect x="-10" y="-10" width="580" height="660" rx="10" fill="#0284c7" stroke="#38bdf8" stroke-width="3"/>
+    <text x="280" y="15" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">BOTTOM LAYER: Arduino Mega 2560 R3 (Directly Plugged Beneath RAMPS)</text>
+
+    <!-- Top Shield (RAMPS 1.4) -->
+    <rect x="10" y="30" width="540" height="600" rx="8" fill="url(#rampsGrad)" stroke="#4ade80" stroke-width="2"/>
+    <text x="280" y="60" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">RAMPS 1.4 SHIELD (TOP BOARD)</text>
+
+    <!-- Power Input 4-Pin Green Plug (Bottom Left) -->
+    <rect x="25" y="500" width="80" height="110" rx="4" fill="#22c55e" stroke="#ffffff" stroke-width="2"/>
+    <text x="65" y="525" text-anchor="middle" fill="#052e16" font-size="12" font-weight="bold">11A [EMPTY]</text>
+    <text x="65" y="545" text-anchor="middle" fill="#14532d" font-size="10">(Bypassed)</text>
+    <line x1="30" y1="555" x2="100" y2="555" stroke="#15803d" stroke-width="2"/>
+    <text x="65" y="580" text-anchor="middle" fill="#052e16" font-size="13" font-weight="bold">5A [12V IN]</text>
+    <text x="65" y="598" text-anchor="middle" fill="#052e16" font-size="10">+ / - From PSU</text>
+
+    <!-- High-Power Terminals D8, D9, D10 (Upper Left Edge) -->
+    <rect x="25" y="100" width="70" height="180" rx="4" fill="#15803d" stroke="#86efac" stroke-width="2"/>
+    
+    <!-- D10 -->
+    <rect x="30" y="110" width="60" height="45" rx="3" fill="#166534" stroke="#ffffff"/>
+    <text x="60" y="130" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">D10 (+ -)</text>
+    <text x="60" y="146" text-anchor="middle" fill="#fca5a5" font-size="10">Hotend 1</text>
+    
+    <!-- D9 -->
+    <rect x="30" y="165" width="60" height="45" rx="3" fill="#166534" stroke="#ffffff"/>
+    <text x="60" y="185" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">D9 (+ -)</text>
+    <text x="60" y="201" text-anchor="middle" fill="#fca5a5" font-size="10">Hotend 2</text>
+
+    <!-- D8 -->
+    <rect x="30" y="220" width="60" height="45" rx="3" fill="#166534" stroke="#ffffff"/>
+    <text x="60" y="240" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">D8 (+ -)</text>
+    <text x="60" y="256" text-anchor="middle" fill="#fde047" font-size="10">Bed Trigger</text>
+
+    <!-- Yellow Polyfuses -->
+    <rect x="115" y="510" width="16" height="45" rx="2" fill="#eab308" stroke="#ca8a04"/>
+    <rect x="135" y="500" width="16" height="55" rx="2" fill="#eab308" stroke="#ca8a04"/>
+    <text x="133" y="580" text-anchor="middle" fill="#fef08a" font-size="9">Polyfuses</text>
+
+    <!-- 5x DRV8825 STEPPER DRIVER MODULES -->
+    <!-- X Driver -->
+    <g transform="translate(130, 110)">
+      <rect width="65" height="100" rx="4" fill="url(#driverGrad)" stroke="#c084fc" stroke-width="2"/>
+      <text x="32" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">X AXIS</text>
+      <text x="32" y="45" text-anchor="middle" fill="#e9d5ff" font-size="10">DRV8825</text>
+      <rect x="17" y="55" width="30" height="30" rx="2" fill="#cbd5e1"/>
+      <text x="32" y="74" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">1/32</text>
+      <circle cx="50" cy="20" r="4" fill="#e2e8f0" stroke="#475569"/>
+    </g>
+
+    <!-- Y Driver -->
+    <g transform="translate(210, 110)">
+      <rect width="65" height="100" rx="4" fill="url(#driverGrad)" stroke="#c084fc" stroke-width="2"/>
+      <text x="32" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">Y AXIS</text>
+      <text x="32" y="45" text-anchor="middle" fill="#e9d5ff" font-size="10">DRV8825</text>
+      <rect x="17" y="55" width="30" height="30" rx="2" fill="#cbd5e1"/>
+      <text x="32" y="74" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">1/32</text>
+      <circle cx="50" cy="20" r="4" fill="#e2e8f0" stroke="#475569"/>
+    </g>
+
+    <!-- Z Driver -->
+    <g transform="translate(290, 110)">
+      <rect width="65" height="100" rx="4" fill="url(#driverGrad)" stroke="#c084fc" stroke-width="2"/>
+      <text x="32" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">Z AXIS</text>
+      <text x="32" y="45" text-anchor="middle" fill="#e9d5ff" font-size="10">DRV8825</text>
+      <rect x="17" y="55" width="30" height="30" rx="2" fill="#cbd5e1"/>
+      <text x="32" y="74" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">1/32</text>
+      <circle cx="50" cy="20" r="4" fill="#e2e8f0" stroke="#475569"/>
+    </g>
+
+    <!-- E0 Driver -->
+    <g transform="translate(170, 230)">
+      <rect width="65" height="100" rx="4" fill="url(#driverGrad)" stroke="#c084fc" stroke-width="2"/>
+      <text x="32" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">E0 (Tool 0)</text>
+      <text x="32" y="45" text-anchor="middle" fill="#e9d5ff" font-size="10">DRV8825</text>
+      <rect x="17" y="55" width="30" height="30" rx="2" fill="#cbd5e1"/>
+      <text x="32" y="74" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">1/32</text>
+      <circle cx="50" cy="20" r="4" fill="#e2e8f0" stroke="#475569"/>
+    </g>
+
+    <!-- E1 Driver -->
+    <g transform="translate(250, 230)">
+      <rect width="65" height="100" rx="4" fill="url(#driverGrad)" stroke="#c084fc" stroke-width="2"/>
+      <text x="32" y="25" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">E1 (Tool 1)</text>
+      <text x="32" y="45" text-anchor="middle" fill="#e9d5ff" font-size="10">DRV8825</text>
+      <rect x="17" y="55" width="30" height="30" rx="2" fill="#cbd5e1"/>
+      <text x="32" y="74" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">1/32</text>
+      <circle cx="50" cy="20" r="4" fill="#e2e8f0" stroke="#475569"/>
+    </g>
+
+    <!-- 4-Pin Stepper Headers Beside Drivers -->
+    <g fill="#020617" stroke="#94a3b8">
+      <rect x="145" y="80" width="35" height="18" rx="2"/><text x="162" y="93" text-anchor="middle" fill="#ffffff" font-size="9">X-MOT</text>
+      <rect x="225" y="80" width="35" height="18" rx="2"/><text x="242" y="93" text-anchor="middle" fill="#ffffff" font-size="9">Y-MOT</text>
+      <rect x="305" y="80" width="35" height="18" rx="2"/><text x="322" y="93" text-anchor="middle" fill="#ffffff" font-size="9">Z1-MOT</text>
+      <rect x="305" y="60" width="35" height="18" rx="2"/><text x="322" y="73" text-anchor="middle" fill="#ffffff" font-size="9">Z2-MOT</text>
+      <rect x="185" y="340" width="35" height="18" rx="2"/><text x="202" y="353" text-anchor="middle" fill="#ffffff" font-size="9">E0-MOT</text>
+      <rect x="265" y="340" width="35" height="18" rx="2"/><text x="282" y="353" text-anchor="middle" fill="#ffffff" font-size="9">E1-MOT</text>
+    </g>
+
+    <!-- Thermistor Headers (T0, T1, T2) -->
+    <g transform="translate(180, 400)">
+      <rect width="110" height="40" rx="4" fill="#047857" stroke="#ffffff"/>
+      <text x="55" y="18" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">THERMISTORS</text>
+      <text x="20" y="33" fill="#a7f3d0" font-size="10">T0</text>
+      <text x="50" y="33" fill="#a7f3d0" font-size="10">T1</text>
+      <text x="80" y="33" fill="#a7f3d0" font-size="10">T2</text>
+    </g>
+
+    <!-- ENDSTOP PINS (TOP RIGHT 3x6 GRID) -->
+    <g transform="translate(380, 100)">
+      <rect width="150" height="150" rx="6" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+      <text x="75" y="25" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="bold">ENDSTOP HEADERS</text>
+      
+      <!-- X-Min -->
+      <rect x="15" y="40" width="120" height="22" rx="3" fill="#047857"/>
+      <text x="75" y="55" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">X-MIN (Pin 3)</text>
+      
+      <!-- Y-Min -->
+      <rect x="15" y="66" width="120" height="22" rx="3" fill="#047857"/>
+      <text x="75" y="81" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Y-MIN (Pin 14)</text>
+
+      <!-- Z-Min -->
+      <rect x="15" y="92" width="120" height="22" rx="3" fill="#047857"/>
+      <text x="75" y="107" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Z-MIN (Pin 18)</text>
+
+      <!-- Z-Max -->
+      <rect x="15" y="118" width="120" height="22" rx="3" fill="#047857"/>
+      <text x="75" y="133" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Z-MAX (Pin 19)</text>
+    </g>
+
+    <!-- RED L-SHAPED SMART ADAPTER (PLUGGED DIRECTLY ON TOP OF RAMPS AUX PINS) -->
+    <g transform="translate(370, 290)">
+      <!-- L-Shape Body -->
+      <path d="M 0,0 L 160,0 L 160,160 L 90,160 L 90,70 L 0,70 Z" fill="url(#adapterGrad)" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+      <text x="80" y="30" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">RED SMART ADAPTER</text>
+      <text x="80" y="50" text-anchor="middle" fill="#fecaca" font-size="10">(Plugs into AUX-3 &amp; AUX-4)</text>
+
+      <!-- Dual 10-Pin Sockets -->
+      <!-- EXP1 Socket -->
+      <rect x="100" y="75" width="50" height="32" rx="3" fill="#1e293b" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="125" y="95" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">EXP1</text>
+
+      <!-- EXP2 Socket -->
+      <rect x="100" y="115" width="50" height="32" rx="3" fill="#1e293b" stroke="#ffffff" stroke-width="1.5"/>
+      <text x="125" y="135" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">EXP2</text>
+    </g>
+  </g>
+
+  <!-- ==================== 5. DISPLAY & SCREEN (BOTTOM RIGHT) ==================== -->
+  <g transform="translate(420, 810)" filter="url(#shadow)">
+    <rect width="560" height="150" rx="8" fill="url(#lcdGrad)" stroke="#60a5fa" stroke-width="2"/>
+    <text x="20" y="30" fill="#ffffff" font-size="16" font-weight="bold">RepRapDiscount 2004 Smart Controller</text>
+
+    <!-- LCD 20x4 Blue Screen -->
+    <rect x="20" y="45" width="280" height="85" rx="4" fill="#1e3a8a" stroke="#93c5fd" stroke-width="2"/>
+    <text x="35" y="70" fill="#e0e7ff" font-size="12" font-family="monospace">Bravo Dual Ready.</text>
+    <text x="35" y="90" fill="#e0e7ff" font-size="12" font-family="monospace">T0: 30° / 0°   T1: 30° / 0°</text>
+    <text x="35" y="110" fill="#e0e7ff" font-size="12" font-family="monospace">Bed: 29°/ 0°   Z: 0.00</text>
+
+    <!-- Rotary Encoder Knob -->
+    <circle cx="360" cy="85" r="30" fill="#334155" stroke="#94a3b8" stroke-width="3"/>
+    <circle cx="360" cy="85" r="16" fill="#0284c7"/>
+    <text x="360" y="130" text-anchor="middle" fill="#cbd5e1" font-size="11">Click Knob</text>
+
+    <!-- Stop Button -->
+    <rect x="425" y="70" width="30" height="30" rx="4" fill="#dc2626" stroke="#fca5a5"/>
+    <text x="440" y="120" text-anchor="middle" fill="#fca5a5" font-size="11">STOP</text>
+
+    <!-- Full Size SD Card Slot -->
+    <rect x="485" y="55" width="55" height="70" rx="4" fill="#0f172a" stroke="#fbbf24"/>
+    <text x="512" y="90" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">SD</text>
+    <text x="512" y="105" text-anchor="middle" fill="#fef08a" font-size="9">CARD</text>
+  </g>
+
+  <!-- ==================== 6. RIGHT SIDE: 4 LIMIT SWITCHES ==================== -->
+  <g transform="translate(1040, 110)">
+    <text x="80" y="15" fill="#f8fafc" font-size="15" font-weight="bold">4x MECHANICAL LIMIT SWITCHES</text>
+
+    <!-- X-Min Switch -->
+    <g transform="translate(0, 30)" filter="url(#shadow)">
+      <rect width="90" height="35" rx="4" fill="#1e293b" stroke="#e2e8f0"/>
+      <line x1="15" y1="5" x2="65" y2="-8" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="65" cy="-8" r="4" fill="#dc2626"/>
+      <text x="45" y="22" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">X-MIN (1)</text>
+    </g>
+
+    <!-- Y-Min Switch -->
+    <g transform="translate(0, 85)" filter="url(#shadow)">
+      <rect width="90" height="35" rx="4" fill="#1e293b" stroke="#e2e8f0"/>
+      <line x1="15" y1="5" x2="65" y2="-8" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="65" cy="-8" r="4" fill="#dc2626"/>
+      <text x="45" y="22" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Y-MIN (1)</text>
+    </g>
+
+    <!-- Z-Min Switch -->
+    <g transform="translate(0, 140)" filter="url(#shadow)">
+      <rect width="90" height="35" rx="4" fill="#1e293b" stroke="#e2e8f0"/>
+      <line x1="15" y1="5" x2="65" y2="-8" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="65" cy="-8" r="4" fill="#dc2626"/>
+      <text x="45" y="22" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Z-MIN (1)</text>
+    </g>
+
+    <!-- Z-Max Switch -->
+    <g transform="translate(0, 195)" filter="url(#shadow)">
+      <rect width="90" height="35" rx="4" fill="#1e293b" stroke="#e2e8f0"/>
+      <line x1="15" y1="5" x2="65" y2="-8" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="65" cy="-8" r="4" fill="#dc2626"/>
+      <text x="45" y="22" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Z-MAX (2)</text>
+    </g>
+  </g>
+
+  <!-- ==================== 7. RIGHT SIDE: 6 STEPPER MOTORS ==================== -->
+  <g transform="translate(1220, 110)">
+    <text x="130" y="15" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="bold">6x NEMA 17 MOTORS</text>
+
+    <!-- Motor 1: X Axis -->
+    <g transform="translate(40, 30)" filter="url(#shadow)">
+      <rect width="180" height="55" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+      <rect x="10" y="10" width="35" height="35" rx="3" fill="#334155"/>
+      <circle cx="27" cy="27" r="8" fill="#94a3b8"/>
+      <text x="105" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">X-AXIS MOTOR</text>
+      <text x="105" y="44" text-anchor="middle" fill="#38bdf8" font-size="10">160 steps/mm (1/32)</text>
+    </g>
+
+    <!-- Motor 2: Y Axis -->
+    <g transform="translate(40, 95)" filter="url(#shadow)">
+      <rect width="180" height="55" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+      <rect x="10" y="10" width="35" height="35" rx="3" fill="#334155"/>
+      <circle cx="27" cy="27" r="8" fill="#94a3b8"/>
+      <text x="105" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">Y-AXIS MOTOR</text>
+      <text x="105" y="44" text-anchor="middle" fill="#38bdf8" font-size="10">160 steps/mm (1/32)</text>
+    </g>
+
+    <!-- Motor 3: Z1 Axis -->
+    <g transform="translate(40, 160)" filter="url(#shadow)">
+      <rect width="180" height="55" rx="6" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+      <rect x="10" y="10" width="35" height="35" rx="3" fill="#334155"/>
+      <circle cx="27" cy="27" r="8" fill="#94a3b8"/>
+      <text x="105" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">Z1 MOTOR (Left)</text>
+      <text x="105" y="44" text-anchor="middle" fill="#818cf8" font-size="10">800 steps/mm (1/32)</text>
+    </g>
+
+    <!-- Motor 4: Z2 Axis -->
+    <g transform="translate(40, 225)" filter="url(#shadow)">
+      <rect width="180" height="55" rx="6" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+      <rect x="10" y="10" width="35" height="35" rx="3" fill="#334155"/>
+      <circle cx="27" cy="27" r="8" fill="#94a3b8"/>
+      <text x="105" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">Z2 MOTOR (Right)</text>
+      <text x="105" y="44" text-anchor="middle" fill="#818cf8" font-size="10">800 steps/mm (1/32)</text>
+    </g>
+
+    <!-- Motor 5: E0 MK8 Extruder 1 -->
+    <g transform="translate(40, 290)" filter="url(#shadow)">
+      <rect width="180" height="65" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="10" y="12" width="40" height="40" rx="3" fill="#d97706"/>
+      <circle cx="30" cy="32" r="10" fill="#fef3c7"/>
+      <text x="115" y="30" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">E0 MK8 DIRECT</text>
+      <text x="115" y="48" text-anchor="middle" fill="#fcd34d" font-size="10">Tool 0 Extruder (180 st/mm)</text>
+    </g>
+
+    <!-- Motor 6: E1 MK8 Extruder 2 -->
+    <g transform="translate(40, 365)" filter="url(#shadow)">
+      <rect width="180" height="65" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="10" y="12" width="40" height="40" rx="3" fill="#d97706"/>
+      <circle cx="30" cy="32" r="10" fill="#fef3c7"/>
+      <text x="115" y="30" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">E1 MK8 DIRECT</text>
+      <text x="115" y="48" text-anchor="middle" fill="#fcd34d" font-size="10">Tool 1 Extruder (180 st/mm)</text>
+    </g>
+  </g>
+
+  <!-- ==================== 8. TOP: DUAL MK8 HOTENDS & HEATER CARTRIDGES ==================== -->
+  <g transform="translate(1040, 560)">
+    <text x="180" y="15" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="bold">DUAL MK8 12V 40W HEATERS</text>
+
+    <!-- MK8 Hotend 1 -->
+    <g transform="translate(30, 30)" filter="url(#shadow)">
+      <rect width="140" height="150" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+      <!-- Gold Heatsink -->
+      <rect x="25" y="15" width="90" height="50" rx="3" fill="#d97706" stroke="#fbbf24"/>
+      <text x="70" y="45" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">GOLD HEATSINK</text>
+      <!-- Heater Block -->
+      <rect x="35" y="75" width="70" height="35" rx="3" fill="#94a3b8"/>
+      <!-- Brass Nozzle -->
+      <polygon points="60,110 80,110 70,130" fill="#eab308"/>
+      <text x="70" y="97" text-anchor="middle" fill="#0f172a" font-size="10" font-weight="bold">MK8 TOOL 0</text>
+      <text x="70" y="145" text-anchor="middle" fill="#fca5a5" font-size="10">12V 40W Heater 1</text>
+    </g>
+
+    <!-- MK8 Hotend 2 -->
+    <g transform="translate(190, 30)" filter="url(#shadow)">
+      <rect width="140" height="150" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+      <!-- Gold Heatsink -->
+      <rect x="25" y="15" width="90" height="50" rx="3" fill="#d97706" stroke="#fbbf24"/>
+      <text x="70" y="45" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">GOLD HEATSINK</text>
+      <!-- Heater Block -->
+      <rect x="35" y="75" width="70" height="35" rx="3" fill="#94a3b8"/>
+      <!-- Brass Nozzle -->
+      <polygon points="60,110 80,110 70,130" fill="#eab308"/>
+      <text x="70" y="97" text-anchor="middle" fill="#0f172a" font-size="10" font-weight="bold">MK8 TOOL 1</text>
+      <text x="70" y="145" text-anchor="middle" fill="#fca5a5" font-size="10">12V 40W Heater 2</text>
+    </g>
+  </g>
+
+  <!-- ==================== WIRING LINES (HIGH CLARITY VECTOR PATHS) ==================== -->
+  
+  <!-- 1. PSU PAIR A (To MKS MOS25) -->
+  <path d="M 220,390 L 250,390 L 250,610 L 80,610 L 80,630" fill="none" stroke="#ef4444" stroke-width="4"/>
+  <path d="M 220,410 L 265,410 L 265,635 L 105,635 L 105,650" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <text x="260" y="470" fill="#f87171" font-size="11" font-weight="bold">Pair A: 12V High Current</text>
+
+  <!-- 2. PSU PAIR B (To RAMPS 4-Pin 5A Plug) -->
+  <path d="M 220,395 L 360,395 L 360,705 L 445,705" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,3"/>
+  <path d="M 220,420 L 375,420 L 375,720 L 445,720" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,3"/>
+  <text x="310" y="690" fill="#38bdf8" font-size="11" font-weight="bold">Pair B: 12V Logic/Motors</text>
+
+  <!-- 3. MKS MOS25 to Heated Bed (Heavy Red & Black) -->
+  <path d="M 265,640 L 290,640 L 290,830 L 190,830 L 190,850" fill="none" stroke="#ef4444" stroke-width="5"/>
+  <path d="M 280,660 L 305,660 L 305,850 L 210,850 L 210,870" fill="none" stroke="#000000" stroke-width="5"/>
+  <text x="315" y="770" fill="#fca5a5" font-size="11" font-weight="bold">Switched 15A to Bed</text>
+
+  <!-- 4. RAMPS D8 Trigger to MKS MOS25 BED SIG -->
+  <path d="M 450,380 L 390,380 L 390,720 L 205,720" fill="none" stroke="#eab308" stroke-width="2.5"/>
+  <text x="260" y="735" fill="#facc15" font-size="11" font-weight="bold">D8 Control Signal</text>
+
+  <!-- 5. RAMPS D10 & D9 to Heaters -->
+  <path d="M 450,250 L 410,250 L 410,50 L 1110,50 L 1110,580" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <path d="M 450,305 L 400,305 L 400,30 L 1270,30 L 1270,580" fill="none" stroke="#f97316" stroke-width="3"/>
+
+  <!-- 6. Ribbon Cables EXP1 & EXP2 (From Red Smart Adapter to 2004 LCD) -->
+  <path d="M 570,390 L 610,390 L 610,810" fill="none" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+  <text x="625" y="600" fill="#e2e8f0" font-size="12" font-weight="bold">EXP1 Ribbon Cable (20-Pin IDC)</text>
+
+  <path d="M 570,430 L 590,430 L 590,810" fill="none" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+  <text x="625" y="630" fill="#cbd5e1" font-size="12" font-weight="bold">EXP2 Ribbon Cable (SD Card SPI)</text>
+
+  <!-- 7. Endstop Wires -->
+  <path d="M 950,250 L 1040,155" fill="none" stroke="#4ade80" stroke-width="2"/>
+  <path d="M 950,275 L 1040,210" fill="none" stroke="#4ade80" stroke-width="2"/>
+  <path d="M 950,300 L 1040,265" fill="none" stroke="#4ade80" stroke-width="2"/>
+  <path d="M 950,325 L 1040,320" fill="none" stroke="#4ade80" stroke-width="2"/>
+
+</svg>
