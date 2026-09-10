@@ -88,8 +88,9 @@ To achieve reliable prints matching your firmware parameters:
 * **Print Speed:** `45 – 55 mm/s`
 * **Outer Wall Speed:** `25 mm/s`
 * **Initial Layer Speed:** `20 mm/s`
+* **Extruder Type:** **Dual MK8 Direct Drive** (12V 40W ceramic heaters + NEMA 17 direct feed)
 * **Retraction Speed:** `25 mm/s`
-* **Retraction Distance:** `4.0 – 5.5 mm` (Bowden) or `1.0 – 1.5 mm` (Direct Drive)
+* **Retraction Distance:** **`0.8 – 1.2 mm`** (CRITICAL: Never set to 5mm+ or the MK8 direct hotend will clog from heat creep!)
 
 ---
 
