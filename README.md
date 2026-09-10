@@ -6,6 +6,9 @@ Comprehensive documentation, electrical blueprints, and configured Marlin 2.0.9.
 
 ![Bravo Dual 3D Printer Circuit & Wiring Diagram](printer_circuit_diagram.jpg)
 
+### 📸 Machine Fabrication & Launch Showcase
+![Bravo Dual 3D Printer Launch at RNSIT](rnsit_dual_nozzle_launch_photo.jpg)
+
 ---
 
 ## 📋 Machine Specifications
@@ -14,9 +17,11 @@ Comprehensive documentation, electrical blueprints, and configured Marlin 2.0.9.
 | :--- | :--- |
 | **Machine Name** | Bravo Dual |
 | **Project Title** | Design and Fabrication of Dual Nozzle 3D Printer |
-| **Original Creators** | Varun, Syed Talha Ahmed, Vishal, Vijay Kumar |
-| **Project Guide** | Dr. Mukesh Patil |
-| **Institution / Batch** | Mechanical Engineering (Batch of 2024) |
+| **Institution** | RNS Institute of Technology (RNSIT), Bangalore |
+| **Department / Club** | Department of Mechanical Engineering (`RNSIT_ME`) / Product Development Club |
+| **Student Builders** | Varun, Syed Talha Ahmed, Vishal, Vijay Kumar (Batch of 2024) |
+| **Faculty Mentor** | Dr. Mukesh Patil |
+| **Official Announcement** | September 7, 2024 |
 | **Firmware** | Marlin 2.0.9.7 (Compiled March 10, 2024 by Syed) |
 | **Controller Architecture** | Arduino Mega 2560 (8-bit AVR, 16 MHz) |
 | **Shield & Driver Board** | RAMPS 1.4 / 1.6 (`BOARD_RAMPS_14_EEB`) |
