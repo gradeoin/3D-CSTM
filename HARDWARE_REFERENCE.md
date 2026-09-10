@@ -11,9 +11,25 @@ In Marlin firmware, the pins are assigned according to `pins_RAMPS.h`. Below is 
 ### High-Power MOSFET Outputs
 | Function | Physical RAMPS Terminal | ATmega2560 Digital Pin | PWM Capable | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Hotend 1 Heater (T0)** | **D10** | `PIN 10` | Yes | 12V ~3.5A heater cartridge |
-| **Hotend 2 Heater (T1)** | **D9** | `PIN 9` | Yes | 12V ~3.5A heater cartridge |
-| **Heated Bed** | **D8** | `PIN 8` | Yes | 12V ~11A high-current MOSFET |
+| **Hotend 1 Heater (T0)** | **D10** | `PIN 10` | Yes | 12V 40W MK8 ceramic heater cartridge |
+| **Hotend 2 Heater (T1)** | **D9** | `PIN 9` | Yes | 12V 40W MK8 ceramic heater cartridge |
+| **Heated Bed Signal** | **D8** | `PIN 8` | Yes | Low-current trigger to MKS MOS25 V2.0 module |
+
+---
+
+## 2. Hotend & Extruder Specifications (Dual MK8 Direct Drive)
+
+Your printer is equipped with two **Aluminum MK8 Direct-Drive Extruders** ([Reference Link](https://www.amazon.in/Printer-Extruder-Aluminum-Dissipation-12v40w/dp/B0C38FBMLL)):
+
+* **Extrusion Architecture:** Direct Drive (NEMA 17 motor mounted directly on the heatsink)
+* **Drive Gear:** Standard knurled MK8 steel gear (~10.8mm effective pitch diameter)
+* **Microstepping on DRV8825:** 1/32 microstepping $\rightarrow$ **`180.00 steps/mm`**
+* **Heater Cartridge:** 12V, 40W (6×20mm ceramic cartridge, red fiberglass leads)
+* **Thermistor:** 100k NTC 3950 glass bead sensor (Marlin sensor type `1`)
+* **Throat / Heatbreak:** M6 threaded stainless steel throat tube with internal PTFE lining
+* **Nozzle:** Standard M6 thread MK8 Brass Nozzle, **0.40 mm** orifice diameter
+* **Filament Size:** 1.75 mm
+* **Optimal Slicer Retraction (Direct Drive):** **`0.8 mm – 1.2 mm`** at **`25 mm/s`**
 
 ### Stepper Motor Pins
 | Axis | Step Pin | Direction Pin | Enable Pin | Notes |
