@@ -4,6 +4,10 @@ Comprehensive documentation, electrical blueprints, and configured Marlin 2.0.9.
 
 ---
 
+![Bravo Dual 3D Printer Circuit & Wiring Diagram](printer_circuit_diagram.jpg)
+
+---
+
 ## 📋 Machine Specifications
 
 | Parameter | Specification |
