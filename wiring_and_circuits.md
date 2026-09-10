@@ -20,15 +20,35 @@ The industrial switching power supply (SMPS) connects to the **green 4-pin screw
 
 ---
 
-## 2. High-Power Outputs (Mosfet Terminals D8, D9, D10)
+## 2. External Heated Bed MOSFET Module Wiring (Confirmed 6-Wire Hookup)
 
-These are the 6 screw terminals on the top-left of the RAMPS board:
+Your printer features an external high-power MOSFET expansion module to isolate the heated bed current from the RAMPS board. It has exactly **6 wires**:
 
-| Terminal | Function in Dual Extruder Mode (`EEB`) | Function in Single Extruder Mode (`EFB`) | Voltage / Max Current |
-| :--- | :--- | :--- | :--- |
-| **D10** | **Hotend 1 Heater Cartridge (T0)** | Hotend 1 Heater Cartridge | 12V, ~3.5A (40W) |
-| **D9** | **Hotend 2 Heater Cartridge (T1)** | Part Cooling Fan (Layer Fan) | 12V, ~3.5A |
-| **D8** | **Heated Bed** | Heated Bed | 12V, 10–11A (130W+) |
+```
+                       ┌─────────────────────────────────────────┐
+[ 12V Power Supply ] ──┤ Power Input (+/-)                       │
+  (2 heavy wires)      │                                         │
+                       │    EXTERNAL HIGH-POWER MOSFET MODULE    │── [ Heated Bed Element ]
+[ RAMPS D8 Output ]  ──┤ Control/Trigger Input (Signal +/-)      │     (2 wires: Red & Black)
+  (2 signal wires)     │                                         │
+                       └─────────────────────────────────────────┘
+```
+
+| Pair | Connection From | Connection To | Wire Type / Colors | Function |
+| :--- | :--- | :--- | :--- | :--- |
+| **1 & 2** | **12V Power Supply** (+V / COM) | **Power In** on MOSFET module | Heavy gauge | Delivers full high-current DC power directly from PSU |
+| **3 & 4** | **RAMPS 1.4 D8 Terminal** | **Control Input** on MOSFET module | Thin signal wires | Low-current switching signal from Marlin firmware |
+| **5 & 6** | **Bed Output** on MOSFET module | **Heated Bed Element** | Red (+) & Black (-) | Carries switched high current to heat the bed |
+
+---
+
+## 3. High-Power Outputs on RAMPS 1.4 (D10, D9, D8)
+
+| Terminal | Function in Dual Extruder Mode (`EEB`) | Voltage / Current |
+| :--- | :--- | :--- |
+| **D10** | **Hotend 1 Heater Cartridge (T0)** | 12V, ~3.5A (40W) |
+| **D9** | **Hotend 2 Heater Cartridge (T1)** | 12V, ~3.5A (40W) |
+| **D8** | **Trigger Signal to External MOSFET** | 12V signal level (low mA) |
 
 ---
 
