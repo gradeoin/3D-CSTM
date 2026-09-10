@@ -7,8 +7,10 @@ This comprehensive guide serves as your offline reference manual and study compa
 ## 1. Machine Overview & Digital Identity
 
 * **Machine Name:** Bravo Dual
-* **Firmware:** Marlin 2.0.9.7 (Compiled March 10, 2024 at 16:21:17)
-* **Author / Builder:** (Syed, Bravo Dual)
+* **Project Title:** Design and Fabrication of Dual Nozzle 3D Printer
+* **Original Builders:** Varun, Syed Talha Ahmed, Vishal, Vijay Kumar
+* **Project Guide:** Dr. Mukesh Patil (Mechanical Engineering, Batch of 2024)
+* **Firmware:** Marlin 2.0.9.7 (Compiled March 10, 2024 at 16:21:17 by Syed)
 * **Board UUID:** `cede2a2f-41a2-4748-9b12-c55c62f367ff`
 * **Default Baud Rate:** `250,000 baud` (Serial COM port communication speed)
 * **Microcontroller:** ATmega2560 (8-bit AVR architecture, 16 MHz clock)

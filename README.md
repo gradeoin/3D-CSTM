@@ -13,12 +13,17 @@ Comprehensive documentation, electrical blueprints, and configured Marlin 2.0.9.
 | Parameter | Specification |
 | :--- | :--- |
 | **Machine Name** | Bravo Dual |
-| **Firmware** | Marlin 2.0.9.7 (Compiled by Syed) |
+| **Project Title** | Design and Fabrication of Dual Nozzle 3D Printer |
+| **Original Creators** | Varun, Syed Talha Ahmed, Vishal, Vijay Kumar |
+| **Project Guide** | Dr. Mukesh Patil |
+| **Institution / Batch** | Mechanical Engineering (Batch of 2024) |
+| **Firmware** | Marlin 2.0.9.7 (Compiled March 10, 2024 by Syed) |
 | **Controller Architecture** | Arduino Mega 2560 (8-bit AVR, 16 MHz) |
 | **Shield & Driver Board** | RAMPS 1.4 / 1.6 (`BOARD_RAMPS_14_EEB`) |
 | **Display & Input** | RepRapDiscount 2004 LCD + Full-Size SD Card Slot |
 | **Printable Build Volume** | **275 mm (X) × 240 mm (Y) × 200 mm (Z)** |
 | **Extruders** | Dual Extruders (2 Nozzles, 2 Heaters, 2 Thermistors) |
+| **Primary Design Goal** | Multi-material printing (supplying 2 materials simultaneously) |
 | **Nozzle / Filament** | 0.40 mm Nozzle / 1.75 mm Filament |
 | **Power Supply** | Industrial 12V 20A–30A SMPS (Switching Power Supply) |
 | **Communication Baud Rate** | `250,000 baud` |
