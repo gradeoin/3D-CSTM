@@ -85,22 +85,35 @@ Located in the 6-pin bank marked `T0`, `T1`, `T2`:
 
 ---
 
-## 5. Endstops (Limit Switches - 3-Pin Headers)
+## 5. Endstops (Confirmed 4 Mechanical Limit Switches)
 
-Located on the top-right edge in a 3×6 pin grid (Signal, GND, VCC). Standard 3D printers only use **Signal** and **GND**:
+Your printer features **4 snap-action mechanical limit switches** (kill switches) for axis homing and travel limits, plugged into the 3×6 endstop header pins on the top-right of RAMPS:
 
-| Header | Axis | Default Trigger State |
-| :--- | :--- | :--- |
-| **X-Min** | X Axis Left Home | Triggered when carriage hits left limit switch |
-| **Y-Min** | Y Axis Bed Front Home | Triggered when bed moves to front switch |
-| **Z-Min** | Z Axis Bed Bottom Home | Triggered when nozzle reaches bed height |
+| Endstop Switch | Location on Machine | RAMPS Pin Header | Function |
+| :--- | :--- | :--- | :--- |
+| **X-Min (1)** | X-Axis Left Carriage | `X-MIN` (Pin 3) | Homes X axis to 0.00 mm (Triggered at home) |
+| **Y-Min (1)** | Y-Axis Front Bed Frame | `Y-MIN` (Pin 14) | Homes Y axis to 0.00 mm (Triggered at home) |
+| **Z-Min (1)** | Z-Axis Lower Gantry | `Z-MIN` (Pin 18) | Sets nozzle bed height reference (0.00 mm) |
+| **Z-Max (1)** | Z-Axis Upper Top Frame | `Z-MAX` (Pin 19) | Emergency upper height ceiling / dual-Z alignment |
 
 ---
 
-## 6. LCD & SD Card Display Ribbon Cables
+## 6. LCD & SD Card Display Wiring (Red L-Shaped Smart Adapter)
 
-The **RepRapDiscount 2004 Smart Controller** connects via the L-shaped "Smart Adapter" plugged into the AUX-3 and AUX-4 headers:
+The **RepRapDiscount 2004 Smart Controller** connects directly to the top of the RAMPS board via its dedicated **Red L-Shaped Smart Adapter PCB**:
 
-* **EXP1 Ribbon Cable:** Drives the LCD text display, rotary encoder knob, and beeper.
-* **EXP2 Ribbon Cable:** Drives the full-size SD card reader SPI bus (MISO, MOSI, SCK, CS) and the Stop/Kill button.
-* *Note:* If the LCD lights up blue but displays no text, EXP1 and EXP2 are plugged in reversed.
+```
+[ LCD 2004 Display Board ]
+          │
+          ├── [ EXP1 Ribbon Cable ] ──► Top Socket on Red Smart Adapter ──► (LCD Text, Knob, Buzzer)
+          └── [ EXP2 Ribbon Cable ] ──► Bottom Socket on Red Smart Adapter ──► (SD Card SPI, Reset Button)
+                                                 │
+                                                 ▼
+                              [ Red L-Shaped Smart Adapter PCB ]
+                                                 │ (Plugs directly on top of)
+                              [ RAMPS 1.4 AUX-3 & AUX-4 Headers ]
+```
+
+* **EXP1 Ribbon Cable:** Drives the 20×4 LCD text display, rotary click knob, and piezo beeper.
+* **EXP2 Ribbon Cable:** Drives the full-size SD card reader SPI bus (MISO, MOSI, SCK, CS) and emergency Stop button.
+* *Note:* If the LCD screen lights up blue but shows no text, the EXP1 and EXP2 cables are plugged in reversed.
