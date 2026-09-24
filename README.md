@@ -43,6 +43,7 @@ Comprehensive documentation, electrical blueprints, and configured Marlin 2.0.9.
 │       ├── Configuration.h     # Customized machine geometry, dual hotends, steps/mm
 │       └── Configuration_adv.h # Advanced toolchange Z-hop & thermal controls
 ├── Configuration.h            # Standalone backup of Configuration.h
+├── CURA_SETTINGS_GUIDE.md     # Step-by-step UltiMaker Cura machine & slicing guide
 ├── SMART_UPGRADE_GUIDE.md     # IoT, OctoPrint, Klipper & automation smart upgrade guide
 ├── PRINTER_STUDY_GUIDE.md     # Master technical study guide & Cura slicing cheat sheet
 ├── HARDWARE_REFERENCE.md      # Low-level pinout mappings, StepStick VREF formulas & build guide
